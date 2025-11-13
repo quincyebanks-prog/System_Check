@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://y17j4tahsuyd"]
+
+[ext_resource type="PackedScene" uid="uid://i21j8r1t2mba" path="res://Meshes/test_level.glb" id="1_hle1x"]
+[ext_resource type="Script" uid="uid://bvtwkfxi7ws2o" path="res://Scripts/worldsound.gd" id="2_rodd7"]
+[ext_resource type="AudioStream" uid="uid://bwc6m2evp8n1t" path="res://Audio/Audio_Assets/Audio/Footsteps/Stone_Step_Sounds.tres" id="3_actdj"]
+[ext_resource type="AudioStream" uid="uid://2ea3syq4qyvr" path="res://Audio/Audio_Assets/Audio/Footsteps/Wood_Step_Sounds.tres" id="4_xtigb"]
+[ext_resource type="AudioStream" uid="uid://06lsfitxcoak" path="res://Audio/Audio_Assets/Audio/Footsteps/Sand_Step_Sounds.tres" id="5_1uao4"]
+[ext_resource type="AudioStream" uid="uid://0kkigbri4b47" path="res://Audio/Audio_Assets/Audio/Footsteps/Grass_Step_Sounds.tres" id="6_vq66p"]
+[ext_resource type="AudioStream" uid="uid://44ngvgps5a5n" path="res://Audio/Audio_Assets/Audio/Footsteps/Dirt_Step_Sounds.tres" id="7_r0efh"]
+
+[node name="test_level" instance=ExtResource("1_hle1x")]
+
+[node name="StaticBody3D" parent="level" index="0"]
+script = ExtResource("2_rodd7")
+footstep_sounds = ExtResource("3_actdj")
+
+[node name="StaticBody3D" parent="wood" index="0"]
+script = ExtResource("2_rodd7")
+footstep_sounds = ExtResource("4_xtigb")
+
+[node name="StaticBody3D" parent="snow" index="0"]
+script = ExtResource("2_rodd7")
+footstep_sounds = ExtResource("5_1uao4")
+
+[node name="StaticBody3D" parent="grass" index="0"]
+script = ExtResource("2_rodd7")
+footstep_sounds = ExtResource("6_vq66p")
+
+[node name="StaticBody3D" parent="dirt" index="0"]
+script = ExtResource("2_rodd7")
+footstep_sounds = ExtResource("7_r0efh")

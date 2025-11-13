@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://drw4xmf7u1qyl"]
+
+[ext_resource type="PackedScene" uid="uid://i21j8r1t2mba" path="res://Meshes/test_level.glb" id="2_nt0jr"]
+[ext_resource type="PackedScene" uid="uid://dh4dnqcirr1ki" path="res://Scenes/player.tscn" id="2_y4ycm"]
+[ext_resource type="AudioStream" uid="uid://bsinho5rq62uu" path="res://Audio/Audio_Assets/Audio/Music/temple.mp3" id="3_y4ycm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nm4sf"]
+sky_top_color = Color(0.3465784, 0.4410238, 0.66933703, 1)
+sky_horizon_color = Color(0.80779845, 0.81894493, 0.86201775, 1)
+ground_bottom_color = Color(0.3625657, 0.31270635, 0.25668415, 1)
+ground_horizon_color = Color(0.80779845, 0.81894493, 0.86201775, 1)
+
+[sub_resource type="Sky" id="Sky_og4jd"]
+sky_material = SubResource("ProceduralSkyMaterial_nm4sf")
+
+[sub_resource type="Environment" id="Environment_nt0jr"]
+background_mode = 2
+sky = SubResource("Sky_og4jd")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="test_level" parent="." instance=ExtResource("2_nt0jr")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nt0jr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 21.263424, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_y4ycm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0047454834, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y4ycm")
+autoplay = true
+bus = &"Music"
